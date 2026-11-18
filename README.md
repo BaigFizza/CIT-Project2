@@ -2,6 +2,8 @@
 
 **Fizza Baig · CIT 384 · Project 2**
 
+https://baigfizza.github.io/CIT-Project2/
+
 My Giga Pet is a browser game inspired by my cat Muffin. Players can name their pet, give it treats, play, exercise, take a walk, nap, and try on outfits. The game starts with Muffin. Use **Add a friend** to choose and name up to four brown tabby cats or dogs. The pet changes poses and reacts to each activity.
 
 ## Controls
