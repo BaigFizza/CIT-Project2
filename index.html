@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Giga Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>My Giga Pet</h1>
+      </header>
+
+      <div class="pet-picker">
+        <label for="active-pet">Active pet</label>
+        <select id="active-pet">
+          <option value="0">Muffin · Cat</option>
+        </select>
+      </div>
+
+      <section class="pet-image-container" data-species="cat" aria-label="Pet habitat">
+        <div class="pet-pose idle-pose">
+          <img class="pet-image" data-friend-pose="idle" src="images/console-muffin-sprite.webp" alt="The pet standing on his rug">
+          <img class="muffin-companion" src="images/console-muffin-sprite.webp" alt="The original cat beside the friend">
+        </div>
+        <div class="pet-pose treat-pose">
+          <img class="pet-image" data-friend-pose="treat" src="images/console-habitat-biscuit.webp" alt="The pet eating a crunchy treat">
+        </div>
+        <div class="pet-pose squeeze-pose">
+          <img class="pet-image" data-friend-pose="treat" src="images/console-habitat-squeeze.webp" alt="The pet enjoying a treat">
+        </div>
+        <div class="pet-pose play-pose">
+          <img class="pet-image" data-friend-pose="idle" src="images/console-muffin-sprite.webp" alt="The pet chasing a butterfly">
+          <img class="muffin-companion" src="images/console-muffin-sprite.webp" alt="The original cat beside the friend">
+          <button type="button" class="butterfly catch-button" aria-label="Catch the butterfly">🦋</button>
+          <span class="tussle-puff" aria-hidden="true">💨</span>
+        </div>
+        <div class="pet-pose caught-pose">
+          <img class="pet-image" data-friend-pose="idle" src="images/console-muffin-sprite.webp" alt="The pet after catching the butterfly">
+          <img class="muffin-companion" src="images/console-muffin-sprite.webp" alt="The original cat beside the friend">
+          <span class="catch-heart" aria-hidden="true">♥</span>
+        </div>
+        <div class="pet-pose walk-pose">
+          <img class="pet-image" data-friend-pose="idle" src="images/console-muffin-sprite.webp" alt="The pet walking along the garden path">
+        </div>
+        <div class="pet-pose exercise-pose">
+          <img class="pet-image" data-friend-pose="stretch" src="images/console-habitat-stretch.webp" alt="The pet stretching">
+        </div>
+        <div class="pet-pose nap-pose">
+          <img class="pet-image" data-friend-pose="sleep" src="images/console-muffin-sleep.webp" alt="The pet curled up asleep">
+          <img class="muffin-companion" src="images/console-muffin-sleep.webp" alt="The original cat sleeping beside the friend">
+        </div>
+        <div class="pet-pose dress-pose formal-pose">
+          <img class="pet-image" data-friend-pose="formal" src="images/console-habitat-formal.webp" alt="The pet in a formal jacket and sunglasses">
+        </div>
+        <div class="pet-pose dress-pose office-pose">
+          <img class="pet-image" data-friend-pose="office" src="images/console-habitat-office.webp" alt="The pet in round glasses and a pink tie">
+        </div>
+        <div class="pet-pose dress-pose weekend-pose">
+          <img class="pet-image" data-friend-pose="weekend" src="images/console-habitat-weekend.webp" alt="The pet in sunglasses on top of its head">
+        </div>
+        <div class="pet-pose dress-pose music-pose">
+          <img class="pet-image" data-friend-pose="music" src="images/console-habitat-music.webp" alt="The pet in a musician outfit with a guitar">
+        </div>
+        <div class="pet-pose dress-pose bee-pose">
+          <img class="pet-image" data-friend-pose="bee" src="images/console-habitat-bee.webp" alt="The pet in a bumblebee costume">
+        </div>
+        <p class="reaction" role="status">
+          <span class="intro-message">Pick an activity for your pet.</span>
+          <span class="pet-message"></span>
+        </p>
+      </section>
+
+      <section class="dashboard" aria-label="Pet stats and controls">
+        <div class="stats">
+          <div>Name <strong class="name">Muffin</strong></div>
+          <div>Weight <strong><span class="weight">8</span> lb</strong></div>
+          <div>Happiness <strong class="happiness">12</strong></div>
+        </div>
+
+        <div class="button-container" role="group" aria-label="Pet activities">
+          <button type="button" class="treat-button"><span aria-hidden="true">🍪</span> Treat</button>
+          <button type="button" class="play-button"><span aria-hidden="true">🦋</span> Play</button>
+          <button type="button" class="exercise-button"><span aria-hidden="true">🐾</span> Exercise</button>
+          <button type="button" class="walk-button"><span aria-hidden="true">🌿</span> Walk</button>
+          <button type="button" class="nap-button"><span aria-hidden="true">🌙</span> Nap</button>
+          <button type="button" class="dress-button"><span aria-hidden="true">👔</span> Dress Up</button>
+          <button type="button" class="add-friend-button" aria-controls="add-friend-form" aria-expanded="false"><span aria-hidden="true">＋</span> Add a friend</button>
+        </div>
+
+        <form id="add-friend-form" class="friend-form" hidden>
+          <label for="friend-type">Animal</label>
+          <select id="friend-type">
+            <option value="tabby">Brown tabby cat</option>
+            <option value="dog">Dog</option>
+          </select>
+          <label for="friend-name">Friend’s name</label>
+          <input id="friend-name" type="text" maxlength="18" required>
+          <button type="submit">Add friend</button>
+          <p class="friend-count" role="status">0 of 4 friends added</p>
+        </form>
+
+        <form class="name-form">
+          <label for="pet-name">Name your pet</label>
+          <input id="pet-name" type="text" value="Muffin" placeholder="Muffin" maxlength="18">
+          <button type="submit">Set name</button>
+        </form>
+
+        <div class="game-options">
+          <label><input type="checkbox" class="sound-toggle" checked> Sound</label>
+          <button type="button" class="reset-button">Reset game</button>
+        </div>
+      </section>
+    </main>
+
+    <audio id="muffin-sound" preload="none"></audio>
+    <footer>By Fizza Baig</footer>
+  </body>
+</html>
